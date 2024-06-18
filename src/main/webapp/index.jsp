@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Bienvenido a nuestro portal de inicio de sesión</h1>
-<form class="formulario" action="verificar" method="post">
+<form class="formulario" action="login" method="post">
     <label for="user">Usuario</label>
     <input id="user" type="text" name="user" required>
     <label for="pass">Contraseña</label>
