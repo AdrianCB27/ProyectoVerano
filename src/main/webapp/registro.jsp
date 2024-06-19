@@ -1,17 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adria
-  Date: 13/06/2024
-  Time: 12:51
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Registro</title>
+    <link rel="stylesheet" href="styles/registro.css">
 </head>
 <body>
-<h1>Bienvenido a nuestro portal de inicio de sesión</h1>
+<br>
+<header><h1>Inmobiliaria Veraniega</h1></header>
+<h2 class="titulo">Bienvenido a nuestro portal de registro</h2>
 <form class="formulario" action="registrar" method="post">
     <label for="nombre">Nombre Completo</label>
     <input id="nombre" type="text" name="nombre" required>
@@ -21,7 +18,7 @@
     <input id="correo" type="email" name="correo">
     <label for="pass">Contraseña</label>
     <input id="pass" type="password" name="pass" required>
-    <button type="submit" class="botonEnviar">Iniciar sesión</button>
+    <button type="submit" class="botonEnviar">Registrarse</button>
 </form>
 </body>
 </html>
