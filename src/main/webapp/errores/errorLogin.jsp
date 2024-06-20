@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
     <title>ERROR</title>
-    <h1>ERROR AL INICIAR SESION</h1>
-    <h2><a href="../index.jsp">Iniciar sesión</a></h2>
+    <link rel="stylesheet" href="../styles/error.css">
 </head>
 <body>
-
+<h1>USUARIO O CONTRASEÑA NO VALIDO</h1>
+<h2><a href="../index.jsp">VOLVER</a></h2>
 </body>
 </html>
