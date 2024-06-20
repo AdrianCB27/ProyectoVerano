@@ -1,6 +1,8 @@
 package LoginYRegistro;
 
+import DAO.DAOManager;
 import DAO.DaoUsersSQL;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,9 +29,9 @@ public class LoginServlet extends HttpServlet {
         if (daoSQL.comprobarUserYPassword(usuario,password)) {
             HttpSession session= req.getSession();
             session.setAttribute("usuario",usuario);
-            resp.sendRedirect("home.jsp");
+           //seguir por aqui xd
         } else {
-            resp.sendRedirect("errorLogin.jsp");
+            resp.sendRedirect("errores/errorLogin.jsp");
         }
     }
 }

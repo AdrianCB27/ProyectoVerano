@@ -18,12 +18,14 @@ public class RegistroServlet extends HttpServlet {
     String pass;
     DaoUsersSQL daoSQL;
 
+
     @Override
     public void init() throws ServletException {
         nombreCompleto = "No completado";
         usuario = "No completado";
         pass = "No completado";
         correo = "No completado";
+
         daoSQL = new DaoUsersSQL();
     }
     public boolean yaExisteUsuario(String usuarioForm){
@@ -103,7 +105,7 @@ public class RegistroServlet extends HttpServlet {
             }
         }else if (!comprobarFortalezaPass(pass)){
             try {
-                response.sendRedirect("errores/errorUsuarioYaExiste.jsp");
+                response.sendRedirect("errores/errorPassNoSegura.jsp");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
