@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         usuario = req.getParameter("user");
         password = req.getParameter("pass");
+        //TODO comprobar el tipo de usuario con un switch para luego redirigirlo a su pagina correspondiente
         if (daoSQL.comprobarUserYPassword(usuario,password)) {
             HttpSession session= req.getSession();
             session.setAttribute("usuario",usuario);

@@ -15,6 +15,10 @@ public class DaoUsersSQL {
     public DaoUsersSQL(){
         dao= new DAOManager();
     }
+
+    public DAOManager getDao(){
+        return dao;
+    }
     public ArrayList<String> getAllUsers(){
         ArrayList<String> users=new ArrayList<>();
         try {
@@ -73,6 +77,11 @@ public class DaoUsersSQL {
             ps.setString(2, nombreCompleto);
             ps.setString(3, passCifrada);
             ps.setString(4, correo);
+
+            PreparedStatement ps2=dao.getConn().prepareStatement(insertInversor);
+            ps2.setDouble(1,0);
+            ps2.setBoolean(2,false);
+            ps2.setString(3,user);
             int filas=ps.executeUpdate();
             int filas2= ps2.executeUpdate();
             if (filas>0&&filas2>0)return true;

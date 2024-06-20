@@ -9,10 +9,10 @@
 <html>
 <head>
     <title>ERROR</title>
-    <h1>ERROR, LA CONTRASEÑA NO CUMPLE CON LOS REQUISITOS</h1>
-    <h2><a href="../registro.jsp">Registro</a></h2>
+    <link rel="stylesheet" href="../styles/error.css">
 </head>
 <body>
-
+    <h1>ERROR, LA CONTRASEÑA NO CUMPLE CON LOS REQUISITOS</h1>
+    <h2><a href="../registro.jsp">VOLVER</a></h2>
 </body>
 </html>
