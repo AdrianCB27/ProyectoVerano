@@ -7,7 +7,11 @@
 </head>
 <body>
 <br>
-<header><h1>Inmobiliaria Veraniega</h1></header>
+<header>
+    <div class="tituloPrincipal">
+        <h1><img src="imagenes/Logo.png" width="100px">Inmobiliaria Veraniega</h1>
+    </div>
+</header>
 <h2 class="titulo">Bienvenido a nuestro portal de registro</h2>
 <form class="formulario" action="registrar" method="post">
     <label for="nombre">Nombre Completo</label>

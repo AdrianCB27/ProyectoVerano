@@ -14,6 +14,9 @@
 <% if (session==null || session.getAttribute("usuario") == null){
     response.sendRedirect("index.jsp");
 }%>
+<h1> Bienvenido al panel de Administrador, <% out.print(session.getAttribute("usuario"));%>.</h1>
+<!--/TODO bloquear y desbloquear usuarios, modificar su userName, contraseña, etc, ver, modificar o eliminar proyectos
+
 
 </body>
 </html>
