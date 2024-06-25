@@ -1,5 +1,3 @@
-/* styles/index.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -9,12 +7,29 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    padding: 20px; /* Espacio para dispositivos pequeños */
+    box-sizing: border-box;
 }
 
-h1.titulo {
-    color: #ff8800; /* Color anaranjado */
-    font-size: 2.5em;
+header {
+    text-align: center;
     margin-bottom: 20px;
+}
+
+.tituloPrincipal h1 {
+    display: flex;
+    align-items: center; /* Alinear verticalmente en el centro */
+    justify-content: center; /* Centrar horizontalmente */
+    font-size: 2em;
+    color: #ff8800; /* Color anaranjado */
+    margin: 0;
+}
+
+h2.titulo {
+    color: #333333; /* Color más oscuro para mejor contraste */
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .formulario {
@@ -60,6 +75,7 @@ h1.titulo {
 .noCuenta {
     margin-top: 20px;
     color: #666666;
+    text-align: center;
 }
 
 .noCuenta a {
@@ -71,10 +87,3 @@ h1.titulo {
 .noCuenta a:hover {
     text-decoration: underline;
 }
-header h1 {
-    color: #ff8800; /* Color anaranjado */
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-
