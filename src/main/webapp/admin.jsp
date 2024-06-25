@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Administrador - Inicio</title>
+    <link rel="icon" href="imagenes/Favicon.png" type="image/x-icon">
 </head>
 <body>
 <% if (session==null || session.getAttribute("usuario") == null){

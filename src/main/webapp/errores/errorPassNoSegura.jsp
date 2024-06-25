@@ -10,6 +10,7 @@
 <head>
     <title>ERROR</title>
     <link rel="stylesheet" href="../styles/error.css">
+    <link rel="icon" href="../imagenes/Favicon.png" type="image/x-icon">
 </head>
 <body>
     <h1>ERROR, LA CONTRASEÑA NO CUMPLE CON LOS REQUISITOS</h1>

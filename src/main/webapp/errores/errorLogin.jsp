@@ -11,6 +11,7 @@
 
     <title>ERROR</title>
     <link rel="stylesheet" href="../styles/error.css">
+    <link rel="icon" href="../imagenes/Favicon.png" type="image/x-icon">
 </head>
 <body>
 <h1>USUARIO O CONTRASEÑA NO VALIDO</h1>

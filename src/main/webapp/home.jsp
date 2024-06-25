@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="icon" href="imagenes/Favicon.png" type="image/x-icon">
+
 </head>
 <body>
 <h1>Hola, <% out.print(session.getAttribute("usuario"));%></h1>

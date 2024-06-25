@@ -4,6 +4,7 @@
 <head>
     <title>Registro</title>
     <link rel="stylesheet" href="styles/registro.css">
+    <link rel="icon" href="imagenes/Favicon.png" type="image/x-icon">
 </head>
 <body>
 <br>
