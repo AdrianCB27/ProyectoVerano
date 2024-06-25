@@ -30,7 +30,10 @@ public class LoginServlet extends HttpServlet {
         if (daoSQL.comprobarUserYPassword(usuario,password)) {
             HttpSession session= req.getSession();
             session.setAttribute("usuario",usuario);
-           //seguir por aqui xd
+            if(daoSQL.esAdmin(usuario)) resp.sendRedirect("admin.jsp");
+            else if(daoSQL.esGestor(usuario)) resp.sendRedirect("gestor.jsp");
+            else if(daoSQL.esInversor(usuario)) resp.sendRedirect("inversor.jsp");
+
         } else {
             resp.sendRedirect("errores/errorLogin.jsp");
         }
