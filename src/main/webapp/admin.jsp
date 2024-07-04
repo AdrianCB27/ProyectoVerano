@@ -13,6 +13,7 @@
 <head>
     <title>Administrador - Inicio</title>
     <link rel="icon" href="imagenes/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
 <% if (session==null || session.getAttribute("usuario") == null){
