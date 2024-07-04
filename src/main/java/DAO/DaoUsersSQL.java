@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import ClasesUtiles.Gestor;
+import ClasesUtiles.Inversor;
 
 public class DaoUsersSQL {
 
@@ -21,7 +23,7 @@ public class DaoUsersSQL {
         return dao;
     }
 
-    public ArrayList<String> getAllUsers() {
+    public ArrayList<String> getAllUsersNames() {
         ArrayList<String> users = new ArrayList<>();
         try {
             dao.open();
@@ -35,6 +37,41 @@ public class DaoUsersSQL {
             throw new RuntimeException(e);
         }
         return users;
+    }
+    public ArrayList<Gestor> getAllUsersGestores() {
+        ArrayList<Gestor> usersGestores = new ArrayList<>();
+        try {
+            dao.open();
+            String sql = "SELECT * FROM gestores";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String userName = rs.getString("userName");
+                boolean estadoCuenta = rs.getBoolean("bloqueado");
+                usersGestores.add(new Gestor(userName,estadoCuenta));
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return usersGestores;
+    }
+    public ArrayList<Inversor> getAllUsersInversores() {
+        ArrayList<Inversor> usersInversores = new ArrayList<>();
+        try {
+            dao.open();
+            String sql = "SELECT * FROM inversores";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String userName = rs.getString("userName");
+                boolean estadoCuenta = rs.getBoolean("bloqueado");
+                double saldo = rs.getDouble("saldo");
+                usersInversores.add(new Inversor(userName, estadoCuenta, saldo));
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return usersInversores;
     }
 
     public static StringBuilder cypherPassword(String passwordEnClaro) {

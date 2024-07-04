@@ -29,7 +29,7 @@ public class RegistroServlet extends HttpServlet {
         daoSQL = new DaoUsersSQL();
     }
     public boolean yaExisteUsuario(String usuarioForm){
-        ArrayList<String> usuariosExistentes=daoSQL.getAllUsers();
+        ArrayList<String> usuariosExistentes=daoSQL.getAllUsersNames();
         for (String u: usuariosExistentes) {
             if (u.equalsIgnoreCase(usuario)) return true;
         }
