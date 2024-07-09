@@ -38,9 +38,13 @@
         <% DaoUsersSQL usersSQL=new DaoUsersSQL();
             ArrayList<Gestor> gestores = usersSQL.getAllUsersGestores();
             for (Gestor gestor: gestores) {
-                out.print("<tr><td>"+gestor.getUserName()+"</td></tr>");
-                out.print("<td>"+gestor.isEstaBloqueado()+"</td>");
-                out.print("<td><button type='submit'>Bloquear/Desbloquear</button></td>");
+                out.print("<tr><td>"+gestor.getUserName()+"</td>");
+                if (gestor.isBloqueado()) out.print("<td>Bloqueado</td>");
+                else out.print("<td> Desbloqueado </td>");
+                out.print("<form action='ModificarUsuarioServlet' method=\"post\">\n" +
+                        "<input type='hidden' name='user' value='"+gestor.getUserName()+"'>"+
+                        "    <td><button type=\"submit\">Bloquear/Desbloquear</button></td>\n" +
+                        "</form>");
                 out.print("</tr>");
             }%>
     </table>
@@ -57,8 +61,12 @@
         <% ArrayList<Inversor> inversores = usersSQL.getAllUsersInversores();
             for (Inversor inversor : inversores) {
                 out.print("<tr><td>"+inversor.getUserName()+"</td>");
-                out.print("<td>"+inversor.isBloqueado()+"</td>");
-                out.print("<td><button type='submit'>Bloquear/Desbloquear</button></td>");
+                if (inversor.isBloqueado()) out.print("<td>Bloqueado</td>");
+                else out.print("<td> Desbloqueado </td>");
+                out.print("<form action='ModificarUsuarioServlet' method=\"post\">\n" +
+                        "<input type='hidden' name='user' value='"+inversor.getUserName()+"'>"+
+                        "    <td><button type=\"submit\">Bloquear/Desbloquear</button></td>\n" +
+                        "</form>");
                 out.print("</tr>");
             }%>
 

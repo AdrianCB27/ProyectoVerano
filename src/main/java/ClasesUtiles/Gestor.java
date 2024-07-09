@@ -9,7 +9,7 @@ public class Gestor{
         this.estaBloqueado = estaBloqueado;
     }
 
-    public boolean isEstaBloqueado() {
+    public boolean isBloqueado() {
         return estaBloqueado;
     }
 

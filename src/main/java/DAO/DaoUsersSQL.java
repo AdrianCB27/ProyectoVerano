@@ -184,4 +184,60 @@ public class DaoUsersSQL {
         }
         return false;
     }
+    public boolean bloquearDesbloquearInversores (String username){
+        try {
+            String consulta = "SELECT bloqueado from inversores where userName like ?";
+            dao.open();
+            PreparedStatement ps = dao.getConn().prepareStatement(consulta);
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            if ( rs.next()){
+                boolean estaBloqueado = rs.getBoolean("bloqueado");
+                String update = "UPDATE inversores SET bloqueado = ? WHERE userName LIKE ?";
+                PreparedStatement ps2 = dao.getConn().prepareStatement(update);
+                ps2.setBoolean(1, !estaBloqueado);
+                ps2.setString(2, username);
+                int filas = ps2.executeUpdate();
+                ps2.close();
+                rs.close();
+                ps.close();
+                dao.close();
+                return filas > 0;
+            }
+            rs.close();
+            ps.close();
+            dao.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public boolean bloquearDesbloquearGestores (String username){
+        try {
+            String consulta = "SELECT bloqueado from gestores where userName like ?";
+            dao.open();
+            PreparedStatement ps = dao.getConn().prepareStatement(consulta);
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            if ( rs.next()){
+                boolean estaBloqueado = rs.getBoolean("bloqueado");
+                String update = "UPDATE gestores SET bloqueado = ? WHERE userName LIKE ?";
+                PreparedStatement ps2 = dao.getConn().prepareStatement(update);
+                ps2.setBoolean(1, !estaBloqueado);
+                ps2.setString(2, username);
+                int filas = ps2.executeUpdate();
+                ps2.close();
+                rs.close();
+                ps.close();
+                dao.close();
+                return filas > 0;
+            }
+            rs.close();
+            ps.close();
+            dao.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
 }
