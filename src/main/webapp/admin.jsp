@@ -75,6 +75,5 @@
 
 </body>
 </html>
-<!--/TODO hacer que el boton de bloquear funcione, configuracion de la cuenta y que no ponga true y false, sino en bloqueado/desbloqueado
-TODO hacer los proyectos, (CRUD), modificar otros usuarios (convertirlos en gestores o inversores)
+<!-- TODO modificar el propio usuario, hacer los proyectos, (CRUD), modificar otros usuarios (convertirlos en gestores o inversores)
 
