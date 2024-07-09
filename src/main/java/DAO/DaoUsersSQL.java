@@ -244,4 +244,59 @@ public class DaoUsersSQL {
         }
         return false;
     }
+
+    public boolean cambiarAGestor(String username) {
+        try {
+            String consultaInsert = "INSERT INTO gestores (bloqueado, userName) values (0, ?)";
+            dao.open();
+            PreparedStatement ps = dao.getConn().prepareStatement(consultaInsert);
+            ps.setString(1, username);
+            int filas = ps.executeUpdate();
+            if (filas>0) {
+                String consultaDelete = "DELETE FROM inversores where userName like ?";
+                PreparedStatement ps2 = dao.getConn().prepareStatement(consultaDelete);
+                ps2.setString(1, username);
+                int filas2 = ps2.executeUpdate();
+                if (filas2>0) {
+                    ps2.close();
+                    dao.close();
+                    ps.close();
+                    return true;
+                }
+            }
+            dao.close();
+            ps.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+
+    public boolean cambiarAInversor(String username) {
+
+        String consultaInsert = "INSERT INTO inversores (bloqueado,userName,saldo) values (0,?,0)";
+        try {
+            dao.open();
+            PreparedStatement ps = dao.getConn().prepareStatement(consultaInsert);
+            ps.setString(1, username);
+            int filas = ps.executeUpdate();
+            if (filas>0) {
+                String consultaDelete = "DELETE FROM gestores where userName like ?";
+                PreparedStatement ps2 = dao.getConn().prepareStatement(consultaDelete);
+                ps2.setString(1, username);
+                int filas2 = ps2.executeUpdate();
+                if (filas2>0) {
+                    ps2.close();
+                    dao.close();
+                    ps.close();
+                    return true;
+                }
+            }
+            dao.close();
+            ps.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
 }

@@ -75,5 +75,5 @@
 
 </body>
 </html>
-<!-- TODO modificar el propio usuario, hacer los proyectos, (CRUD), modificar otros usuarios (convertirlos en gestores o inversores)
+<!-- TODO modificar el propio usuario, hacer los proyectos, (CRUD)
 

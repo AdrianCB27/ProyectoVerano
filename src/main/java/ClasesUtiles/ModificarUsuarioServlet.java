@@ -27,5 +27,4 @@ public class ModificarUsuarioServlet extends HttpServlet {
             resp.sendRedirect("admin.jsp");
         }
     }
-
 }
