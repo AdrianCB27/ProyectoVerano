@@ -38,6 +38,7 @@ public class DaoUsersSQL {
         }
         return users;
     }
+
     public ArrayList<Gestor> getAllUsersGestores() {
         ArrayList<Gestor> usersGestores = new ArrayList<>();
         try {
@@ -48,13 +49,14 @@ public class DaoUsersSQL {
             while (rs.next()) {
                 String userName = rs.getString("userName");
                 boolean estadoCuenta = rs.getBoolean("bloqueado");
-                usersGestores.add(new Gestor(userName,estadoCuenta));
+                usersGestores.add(new Gestor(userName, estadoCuenta));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return usersGestores;
     }
+
     public ArrayList<Inversor> getAllUsersInversores() {
         ArrayList<Inversor> usersInversores = new ArrayList<>();
         try {
@@ -176,7 +178,7 @@ public class DaoUsersSQL {
             PreparedStatement ps = dao.getConn().prepareStatement(consulta);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) return  true;
+            if (rs.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -184,14 +186,15 @@ public class DaoUsersSQL {
         }
         return false;
     }
-    public boolean bloquearDesbloquearInversores (String username){
+
+    public boolean bloquearDesbloquearInversores(String username) {
         try {
             String consulta = "SELECT bloqueado from inversores where userName like ?";
             dao.open();
             PreparedStatement ps = dao.getConn().prepareStatement(consulta);
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            if ( rs.next()){
+            if (rs.next()) {
                 boolean estaBloqueado = rs.getBoolean("bloqueado");
                 String update = "UPDATE inversores SET bloqueado = ? WHERE userName LIKE ?";
                 PreparedStatement ps2 = dao.getConn().prepareStatement(update);
@@ -212,14 +215,15 @@ public class DaoUsersSQL {
         }
         return false;
     }
-    public boolean bloquearDesbloquearGestores (String username){
+
+    public boolean bloquearDesbloquearGestores(String username) {
         try {
             String consulta = "SELECT bloqueado from gestores where userName like ?";
             dao.open();
             PreparedStatement ps = dao.getConn().prepareStatement(consulta);
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            if ( rs.next()){
+            if (rs.next()) {
                 boolean estaBloqueado = rs.getBoolean("bloqueado");
                 String update = "UPDATE gestores SET bloqueado = ? WHERE userName LIKE ?";
                 PreparedStatement ps2 = dao.getConn().prepareStatement(update);

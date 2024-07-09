@@ -22,10 +22,10 @@
 <h1> Bienvenido al panel de Administrador, <% out.print(session.getAttribute("usuario"));%>.</h1>
 
 <header>
-    <div>Bloquear o desbloquear usuarios</div>
-    <div>Configuración cuenta</div>
-    <div>Lista de proyectos</div>
-    <div>Modificar usuarios</div>
+    <div> <a href="admin.jsp">Bloquear o desbloquear usuarios</a></div>
+    <div> <a href="configuracionCuenta.jsp">Configuración cuenta</a></div>
+    <div> <a href="listaDeProyectos.jsp">Lista de proyectos</a></div>
+    <div> <a href="modificarUsuarios.jsp">Modificar usuarios</a></div>
 </header>
 <h2>Gestores</h2>
 <div class="listadoGestores">
