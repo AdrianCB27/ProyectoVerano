@@ -9,7 +9,7 @@
 <body>
 <header>
     <div class="tituloPrincipal">
-        <h1><img src="imagenes/Logo.png" width="100px">Inmobiliaria Veraniega</h1>
+        <h1><img src="imagenes/Logo.png" width="100px">Inmobiliaria Chuxiria 🍩🍫</h1>
     </div>
 </header>
 <h2 class="titulo">Bienvenido a nuestro portal de inicio de sesión</h2>
