@@ -57,6 +57,42 @@ public class DaoUsersSQL {
         return usersGestores;
     }
 
+    public String getUserAdmin() {
+        String userName = "";
+        try {
+            dao.open();
+            String sql = "SELECT * FROM admins";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                userName = rs.getString("userName");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return userName;
+    }
+
+    public ArrayList<String> getDatosAdmin() {
+        String userName=getUserAdmin();
+        ArrayList<String> datosAdmin=new ArrayList<>();
+        try {
+            dao.open();
+            String sql = "SELECT * FROM usuarios WHERE userName like ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ps.setString(1,userName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                datosAdmin.add(rs.getString("userName")) ;
+                datosAdmin.add(rs.getString("nombre")) ;
+                datosAdmin.add(rs.getString("email")) ;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return datosAdmin;
+    }
+
     public ArrayList<Inversor> getAllUsersInversores() {
         ArrayList<Inversor> usersInversores = new ArrayList<>();
         try {
@@ -252,12 +288,12 @@ public class DaoUsersSQL {
             PreparedStatement ps = dao.getConn().prepareStatement(consultaInsert);
             ps.setString(1, username);
             int filas = ps.executeUpdate();
-            if (filas>0) {
+            if (filas > 0) {
                 String consultaDelete = "DELETE FROM inversores where userName like ?";
                 PreparedStatement ps2 = dao.getConn().prepareStatement(consultaDelete);
                 ps2.setString(1, username);
                 int filas2 = ps2.executeUpdate();
-                if (filas2>0) {
+                if (filas2 > 0) {
                     ps2.close();
                     dao.close();
                     ps.close();
@@ -280,12 +316,12 @@ public class DaoUsersSQL {
             PreparedStatement ps = dao.getConn().prepareStatement(consultaInsert);
             ps.setString(1, username);
             int filas = ps.executeUpdate();
-            if (filas>0) {
+            if (filas > 0) {
                 String consultaDelete = "DELETE FROM gestores where userName like ?";
                 PreparedStatement ps2 = dao.getConn().prepareStatement(consultaDelete);
                 ps2.setString(1, username);
                 int filas2 = ps2.executeUpdate();
-                if (filas2>0) {
+                if (filas2 > 0) {
                     ps2.close();
                     dao.close();
                     ps.close();
@@ -294,6 +330,79 @@ public class DaoUsersSQL {
             }
             dao.close();
             ps.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public boolean cambiarUserName(String oldUsername, String newUsername){
+        try {
+            dao.open();
+            String update= "UPDATE usuarios SET userName = ? WHERE userName = ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(update);
+            ps.setString(1,newUsername);
+            ps.setString(2,oldUsername);
+            int filas = ps.executeUpdate();
+            dao.close();
+            ps.close();
+            return filas>0;
+        }catch (SQLException e){
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public boolean cambiarNombre(String oldUsername, String newNombre){
+        try {
+            dao.open();
+            String update= "UPDATE usuarios SET nombre = ? WHERE userName = ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(update);
+            ps.setString(1,newNombre);
+            ps.setString(2,oldUsername);
+            int filas = ps.executeUpdate();
+            dao.close();
+            ps.close();
+            return filas>0;
+        }catch (SQLException e){
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public boolean cambiarEmail(String oldUsername, String newEmail){
+        try {
+            dao.open();
+            String update= "UPDATE usuarios SET email = ? WHERE userName = ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(update);
+            ps.setString(1,newEmail);
+            ps.setString(2,oldUsername);
+            int filas = ps.executeUpdate();
+            dao.close();
+            ps.close();
+            return filas>0;
+        }catch (SQLException e){
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+    public boolean cambiarPassword(String oldUsername, String newPassword){
+        try {
+            dao.open();
+            String passCifrada= String.valueOf(cypherPassword(newPassword));
+            String update= "UPDATE usuarios SET userPassword = ? WHERE userName = ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(update);
+            ps.setString(1,passCifrada);
+            ps.setString(2,oldUsername);
+            int filas = ps.executeUpdate();
+            dao.close();
+            ps.close();
+            return filas>0;
+        }catch (SQLException e){
+            e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

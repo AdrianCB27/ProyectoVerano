@@ -10,6 +10,7 @@ body {
     align-items: center;
 }
 
+
 h1 {
     font-size: 2em;
     color: #333;
@@ -26,22 +27,37 @@ h2 {
 header {
     display: flex;
     justify-content: space-around;
-    background-color: #fff;
+    background-color: #4CAF50; /* Fondo del header */
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0; /* Más espacio interior */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    border-bottom: 2px solid #3E8E41; /* Borde inferior para separación */
 }
 
 header div {
     cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.3s;
+    padding: 10px 20px; /* Más espacio alrededor del texto */
+    transition: background-color 0.3s, color 0.3s; /* Transición para el color también */
 }
 
 header div:hover {
-    background-color: #f0f0f0;
+    background-color: #3E8E41; /* Fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
 }
+
+header a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Grosor de la fuente */
+    transition: color 0.3s ease; /* Transición para el hover */
+}
+
+header a:hover {
+    color: #ddd; /* Color del texto al pasar el mouse */
+}
+
 
 /* Listado de Gestores */
 .listadoGestores table {
@@ -71,6 +87,41 @@ header div:hover {
 .listadoGestores tr:hover {
     background-color: #ddd;
 }
+/* Listado Admin*/
+.listadoAdmin {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.listadoAdmin th, .listadoAdmin td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+
+}
+
+.listadoAdmin th {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.listadoAdmin tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.listadoAdmin tr:hover {
+    background-color: #ddd;
+}
+.listadoAdmin table {
+    margin: 0 auto;
+}
+
+
 
 /* Listado de Inversores */
 .listadoInversores table {
@@ -127,3 +178,4 @@ button {
 .listadoInversores button:hover {
     background-color: #d32f2f;
 }
+
