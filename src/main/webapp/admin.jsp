@@ -75,5 +75,5 @@
 
 </body>
 </html>
-<!-- TODO modificar el propio usuario, hacer los proyectos, (CRUD)
+<!-- TODO hacer los proyectos, (CRUD)
 
