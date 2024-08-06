@@ -1,181 +1,124 @@
-/* General */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2;/* Color de fondo suave para el cuerpo */
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Alinea el contenido al centro */
 }
-
 
 h1 {
     font-size: 2em;
-    color: #333;
+    color: #333; /* Color de texto oscuro */
     margin-bottom: 20px;
+    text-align: center; /* Alineación centrada */
 }
 
 h2 {
     font-size: 1.5em;
-    color: #333;
+    color: #333; /* Color de texto oscuro */
     margin-bottom: 10px;
+    text-align: center; /* Alineación centrada */
 }
 
-/* Header */
+
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* Espacio entre enlaces del header */
     background-color: #4CAF50; /* Fondo del header */
     width: 100%;
-    padding: 15px 0; /* Más espacio interior */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;/* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     margin-bottom: 20px;
-    border-bottom: 2px solid #3E8E41; /* Borde inferior para separación */
+    border-bottom: 2px solid #3E8E41; /* Borde inferior */
 }
 
 header div {
     cursor: pointer;
-    padding: 10px 20px; /* Más espacio alrededor del texto */
-    transition: background-color 0.3s, color 0.3s; /* Transición para el color también */
+    padding: 10px 20px;/* Espaciado interno */
+    transition: background-color 0.3s, color 0.3s;/* Transición de fondo y color */
 }
 
 header div:hover {
-    background-color: #3E8E41; /* Fondo al pasar el mouse */
-    color: white; /* Color del texto al pasar el mouse */
+    background-color: #3E8E41;
+    color: white;/* Color del texto al pasar el mouse */
 }
 
 header a {
-    color: white; /* Color del texto de los enlaces */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-size: 18px; /* Tamaño de la fuente */
-    font-weight: bold; /* Grosor de la fuente */
-    transition: color 0.3s ease; /* Transición para el hover */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 header a:hover {
-    color: #ddd; /* Color del texto al pasar el mouse */
+    color: #ddd;
 }
 
 
-/* Listado de Gestores */
-.listadoGestores table {
+table {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     border-collapse: collapse;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.listadoGestores th, .listadoGestores td {
+th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    font-size: 14px;
 }
 
-.listadoGestores th {
+th {
     background-color: #4CAF50;
     color: white;
+    font-weight: bold;
 }
 
-.listadoGestores tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.listadoGestores tr:hover {
-    background-color: #ddd;
-}
-/* Listado Admin*/
-.listadoAdmin {
-    width: 100%;
-    max-width: 500px;
-    border-collapse: collapse;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-}
-
-.listadoAdmin th, .listadoAdmin td {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 10px;
-
-}
-
-.listadoAdmin th {
-    text-align: center;
-    background-color: #4CAF50;
-    color: white;
-}
-
-.listadoAdmin tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.listadoAdmin tr:hover {
-    background-color: #ddd;
-}
-.listadoAdmin table {
-    margin: 0 auto;
-}
-
-
-
-/* Listado de Inversores */
-.listadoInversores table {
-    width: 100%;
-    max-width: 800px;
-    border-collapse: collapse;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-}
-
-.listadoInversores th, .listadoInversores td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-.listadoInversores th {
-    background-color: #f44336;
-    color: white;
-}
-
-.listadoInversores tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.listadoInversores tr:hover {
+tr:hover {
     background-color: #ddd;
 }
 
-/* Botones */
+
 button {
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.3s;
 }
 
-.listadoGestores button {
+
+button[type="submit"]:not(.delete-btn) {
     background-color: #4CAF50;
-    color: white;
 }
 
-.listadoInversores button {
-    background-color: #f44336;
-    color: white;
-}
-
-.listadoGestores button:hover {
+button[type="submit"]:not(.delete-btn):hover {
     background-color: #45a049;
 }
 
-.listadoInversores button:hover {
+
+button.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+}
+
+button.delete-btn:hover {
     background-color: #d32f2f;
+    color: white;
 }
 
