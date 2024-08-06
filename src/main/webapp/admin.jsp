@@ -24,7 +24,7 @@
 <header>
     <div> <a href="admin.jsp">Bloquear o desbloquear usuarios</a></div>
     <div> <a href="configuracionCuenta.jsp">Configuración cuenta</a></div>
-    <div> <a href="listaDeProyectos.jsp">Lista de proyectos</a></div>
+    <div> <a href="listaDeProyectosAdmin.jsp">Lista de proyectos</a></div>
     <div> <a href="modificarUsuarios.jsp">Modificar usuarios</a></div>
 </header>
 <h2>Gestores</h2>
