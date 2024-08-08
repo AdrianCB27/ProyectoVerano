@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Admin;
 
 import DAO.DaoUsersSQL;
 import jakarta.servlet.ServletException;
@@ -27,6 +27,6 @@ public class CambiarUserNameServlet extends HttpServlet {
        oldUserName= req.getParameter("oldUserName");
        newUserName=req.getParameter("newUserName");
        daoUsersSQL.cambiarUserName(oldUserName, newUserName);
-       resp.sendRedirect("configuracionCuenta.jsp");
+       resp.sendRedirect("configuracionCuentaAdmin.jsp");
     }
 }

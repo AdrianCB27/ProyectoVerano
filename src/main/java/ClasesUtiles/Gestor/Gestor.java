@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Gestor;
 
 public class Gestor{
     private  String userName;

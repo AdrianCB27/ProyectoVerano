@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ClasesUtiles.Gestor;
+import ClasesUtiles.Gestor.Gestor;
 import ClasesUtiles.Inversor;
 
 public class DaoUsersSQL {
@@ -73,7 +73,7 @@ public class DaoUsersSQL {
         return userName;
     }
 
-    public ArrayList<String> getDatosAdmin() {
+    public ArrayList<String> getDatosUsuario() {
         String userName=getUserAdmin();
         ArrayList<String> datosAdmin=new ArrayList<>();
         try {
@@ -91,6 +91,24 @@ public class DaoUsersSQL {
             throw new RuntimeException(e);
         }
         return datosAdmin;
+    }
+    public ArrayList<String> getDatosUsuarioGestor(String username) {
+        ArrayList<String> datosGestor=new ArrayList<>();
+        try {
+            dao.open();
+            String sql = "SELECT * FROM usuarios WHERE userName like ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                datosGestor.add(rs.getString("userName")) ;
+                datosGestor.add(rs.getString("nombre")) ;
+                datosGestor.add(rs.getString("email")) ;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return datosGestor;
     }
 
     public ArrayList<Inversor> getAllUsersInversores() {

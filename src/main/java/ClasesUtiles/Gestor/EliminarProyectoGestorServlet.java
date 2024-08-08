@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Gestor;
 
 import DAO.DaoProyectosSQL;
 import jakarta.servlet.ServletException;
@@ -8,23 +8,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-@WebServlet("/ModificarFechaInicioServlet")
-public class ModificarFechaInicioServlet extends HttpServlet {
+
+@WebServlet("/EliminarProyectoGestorServlet")
+public class EliminarProyectoGestorServlet extends HttpServlet {
     private int codigo;
-    private String fechaInicio;
     private DaoProyectosSQL daoProyectosSQL;
 
     public void init(){
         codigo=-1;
-        fechaInicio="no inicializado";
         daoProyectosSQL=new DaoProyectosSQL();
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         codigo= Integer.parseInt(req.getParameter("codigo"));
-        fechaInicio=req.getParameter("fechaInicio");
-        daoProyectosSQL.modificarNombreProyecto(codigo, fechaInicio);
-        resp.sendRedirect("listaDeProyectosAdmin.jsp");
+        daoProyectosSQL.deleteProyecto(codigo);
+        resp.sendRedirect("listaDeProyectosGestor.jsp");
     }
 }

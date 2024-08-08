@@ -1,0 +1,124 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;/* Color de fondo suave para el cuerpo */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea el contenido al centro */
+}
+
+h1 {
+    font-size: 2em;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 20px;
+    text-align: center; /* Alineación centrada */
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 10px;
+    text-align: center; /* Alineación centrada */
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around; /* Espacio entre enlaces del header */
+    background-color: red; /* Fondo del header */
+    width: 100%;
+    padding: 15px 0;/* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 20px;
+    border-bottom: 2px solid red; /* Borde inferior */
+}
+
+header div {
+    cursor: pointer;
+    padding: 10px 20px;/* Espaciado interno */
+    transition: background-color 0.3s, color 0.3s;/* Transición de fondo y color */
+}
+
+header div:hover {
+    background-color: red;
+    color: white;/* Color del texto al pasar el mouse */
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #ddd;
+}
+
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+
+button[type="submit"]:not(.delete-btn) {
+    background-color: red;
+}
+
+button[type="submit"]:not(.delete-btn):hover {
+    background-color: red;
+}
+
+
+button.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+}
+
+button.delete-btn:hover {
+    background-color: #d32f2f;
+    color: white;
+}
+

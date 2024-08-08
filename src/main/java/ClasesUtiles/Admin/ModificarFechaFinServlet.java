@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Admin;
 
 import DAO.DaoProyectosSQL;
 import jakarta.servlet.ServletException;
@@ -24,8 +24,8 @@ public class ModificarFechaFinServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         codigo= Integer.parseInt(req.getParameter("codigo"));
-        nuevaFechaFinProyecto=req.getParameter("nuevaFechaFinProyecto");
-        daoProyectosSQL.modificarNombreProyecto(codigo, nuevaFechaFinProyecto);
+        nuevaFechaFinProyecto=req.getParameter("fechaFin");
+        daoProyectosSQL.modificarFechaFinProyecto(codigo, nuevaFechaFinProyecto);
         resp.sendRedirect("listaDeProyectosAdmin.jsp");
     }
 }

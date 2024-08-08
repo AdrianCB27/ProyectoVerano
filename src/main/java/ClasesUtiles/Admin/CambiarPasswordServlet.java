@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Admin;
 
 import DAO.DaoUsersSQL;
 import jakarta.servlet.ServletException;
@@ -26,6 +26,6 @@ public class CambiarPasswordServlet extends HttpServlet {
         password= req.getParameter("newPassword");
         userName= req.getParameter("oldUserName");
         daoUsersSQL.cambiarPassword(userName, password);
-        resp.sendRedirect("configuracionCuenta.jsp");
+        resp.sendRedirect("configuracionCuentaAdmin.jsp");
     }
 }

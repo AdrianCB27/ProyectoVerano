@@ -1,6 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="ClasesUtiles.Inversor" %>
-<%@ page import="ClasesUtiles.Gestor" %>
+<%@ page import="ClasesUtiles.Gestor.Gestor" %>
 <%@ page import="DAO.DaoUsersSQL" %><%--
   Created by IntelliJ IDEA.
   User: adria
@@ -23,7 +23,7 @@
 
 <header>
     <div> <a href="admin.jsp">Bloquear o desbloquear usuarios</a></div>
-    <div> <a href="configuracionCuenta.jsp">Configuración cuenta</a></div>
+    <div> <a href="configuracionCuentaAdmin.jsp">Configuración cuenta</a></div>
     <div> <a href="listaDeProyectosAdmin.jsp">Lista de proyectos</a></div>
     <div> <a href="modificarUsuarios.jsp">Modificar usuarios</a></div>
 </header>

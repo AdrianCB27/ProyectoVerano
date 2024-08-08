@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Gestor;
 
 import DAO.DaoProyectosSQL;
 import jakarta.servlet.ServletException;
@@ -9,23 +9,23 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/ModificarDescripcionProyectoServlet")
-public class ModificarDescripcionProyectoServlet extends HttpServlet {
+@WebServlet("/ModificarNombreProyectoGestorServlet")
+public class ModificarNombreProyectoGestorServlet extends HttpServlet {
     private int codigo;
-    private String nuevaDescripcionProyecto;
+    private String nuevoNombreProyecto;
     private DaoProyectosSQL daoProyectosSQL;
 
     public void init(){
         codigo=-1;
-        nuevaDescripcionProyecto="no inicializado";
+        nuevoNombreProyecto="no inicializado";
         daoProyectosSQL=new DaoProyectosSQL();
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         codigo= Integer.parseInt(req.getParameter("codigo"));
-        nuevaDescripcionProyecto=req.getParameter("nuevaDescripcionProyecto");
-        daoProyectosSQL.modificarNombreProyecto(codigo, nuevaDescripcionProyecto);
-        resp.sendRedirect("listaDeProyectosAdmin.jsp");
+        nuevoNombreProyecto=req.getParameter("nuevoNombreProyecto");
+        daoProyectosSQL.modificarNombreProyecto(codigo, nuevoNombreProyecto);
+        resp.sendRedirect("gestor.jsp");
     }
 }
