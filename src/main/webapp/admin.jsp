@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="ClasesUtiles.Inversor" %>
+<%@ page import="ClasesUtiles.Inversor.Inversor" %>
 <%@ page import="ClasesUtiles.Gestor.Gestor" %>
 <%@ page import="DAO.DaoUsersSQL" %><%--
   Created by IntelliJ IDEA.

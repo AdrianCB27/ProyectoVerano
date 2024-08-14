@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ClasesUtiles.Gestor.Gestor;
-import ClasesUtiles.Inversor;
+import ClasesUtiles.Inversor.Inversor;
 
 public class DaoUsersSQL {
 

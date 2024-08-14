@@ -1,4 +1,4 @@
-package ClasesUtiles;
+package ClasesUtiles.Inversor;
 
 public class Inversor {
     private String userName;
