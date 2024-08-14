@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Error</title>
+    <title>ERROR</title>
     <link rel="stylesheet" href="../styles/error.css">
     <link rel="icon" href="../imagenes/Favicon.png" type="image/x-icon">
 </head>
