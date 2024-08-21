@@ -74,36 +74,37 @@ public class DaoUsersSQL {
     }
 
     public ArrayList<String> getDatosUsuario() {
-        String userName=getUserAdmin();
-        ArrayList<String> datosAdmin=new ArrayList<>();
+        String userName = getUserAdmin();
+        ArrayList<String> datosAdmin = new ArrayList<>();
         try {
             dao.open();
             String sql = "SELECT * FROM usuarios WHERE userName like ?";
             PreparedStatement ps = dao.getConn().prepareStatement(sql);
-            ps.setString(1,userName);
+            ps.setString(1, userName);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                datosAdmin.add(rs.getString("userName")) ;
-                datosAdmin.add(rs.getString("nombre")) ;
-                datosAdmin.add(rs.getString("email")) ;
+                datosAdmin.add(rs.getString("userName"));
+                datosAdmin.add(rs.getString("nombre"));
+                datosAdmin.add(rs.getString("email"));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return datosAdmin;
     }
+
     public ArrayList<String> getDatosUsuarioGestor(String username) {
-        ArrayList<String> datosGestor=new ArrayList<>();
+        ArrayList<String> datosGestor = new ArrayList<>();
         try {
             dao.open();
             String sql = "SELECT * FROM usuarios WHERE userName like ?";
             PreparedStatement ps = dao.getConn().prepareStatement(sql);
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                datosGestor.add(rs.getString("userName")) ;
-                datosGestor.add(rs.getString("nombre")) ;
-                datosGestor.add(rs.getString("email")) ;
+                datosGestor.add(rs.getString("userName"));
+                datosGestor.add(rs.getString("nombre"));
+                datosGestor.add(rs.getString("email"));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -353,73 +354,77 @@ public class DaoUsersSQL {
         }
         return false;
     }
-    public boolean cambiarUserName(String oldUsername, String newUsername){
+
+    public boolean cambiarUserName(String oldUsername, String newUsername) {
         try {
             dao.open();
-            String update= "UPDATE usuarios SET userName = ? WHERE userName = ?";
+            String update = "UPDATE usuarios SET userName = ? WHERE userName = ?";
             PreparedStatement ps = dao.getConn().prepareStatement(update);
-            ps.setString(1,newUsername);
-            ps.setString(2,oldUsername);
+            ps.setString(1, newUsername);
+            ps.setString(2, oldUsername);
             int filas = ps.executeUpdate();
             dao.close();
             ps.close();
-            return filas>0;
-        }catch (SQLException e){
+            return filas > 0;
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return false;
     }
-    public boolean cambiarNombre(String oldUsername, String newNombre){
+
+    public boolean cambiarNombre(String oldUsername, String newNombre) {
         try {
             dao.open();
-            String update= "UPDATE usuarios SET nombre = ? WHERE userName = ?";
+            String update = "UPDATE usuarios SET nombre = ? WHERE userName = ?";
             PreparedStatement ps = dao.getConn().prepareStatement(update);
-            ps.setString(1,newNombre);
-            ps.setString(2,oldUsername);
+            ps.setString(1, newNombre);
+            ps.setString(2, oldUsername);
             int filas = ps.executeUpdate();
             dao.close();
             ps.close();
-            return filas>0;
-        }catch (SQLException e){
+            return filas > 0;
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return false;
     }
-    public boolean cambiarEmail(String oldUsername, String newEmail){
+
+    public boolean cambiarEmail(String oldUsername, String newEmail) {
         try {
             dao.open();
-            String update= "UPDATE usuarios SET email = ? WHERE userName = ?";
+            String update = "UPDATE usuarios SET email = ? WHERE userName = ?";
             PreparedStatement ps = dao.getConn().prepareStatement(update);
-            ps.setString(1,newEmail);
-            ps.setString(2,oldUsername);
+            ps.setString(1, newEmail);
+            ps.setString(2, oldUsername);
             int filas = ps.executeUpdate();
             dao.close();
             ps.close();
-            return filas>0;
-        }catch (SQLException e){
+            return filas > 0;
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return false;
     }
-    public boolean cambiarPassword(String oldUsername, String newPassword){
+
+    public boolean cambiarPassword(String oldUsername, String newPassword) {
         try {
             dao.open();
-            String passCifrada= String.valueOf(cypherPassword(newPassword));
-            String update= "UPDATE usuarios SET userPassword = ? WHERE userName = ?";
+            String passCifrada = String.valueOf(cypherPassword(newPassword));
+            String update = "UPDATE usuarios SET userPassword = ? WHERE userName = ?";
             PreparedStatement ps = dao.getConn().prepareStatement(update);
-            ps.setString(1,passCifrada);
-            ps.setString(2,oldUsername);
+            ps.setString(1, passCifrada);
+            ps.setString(2, oldUsername);
             int filas = ps.executeUpdate();
             dao.close();
             ps.close();
-            return filas>0;
-        }catch (SQLException e){
+            return filas > 0;
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
