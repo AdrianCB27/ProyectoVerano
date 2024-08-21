@@ -57,6 +57,7 @@ public class DaoUsersSQL {
         return usersGestores;
     }
 
+
     public String getUserAdmin() {
         String userName = "";
         try {
@@ -110,6 +111,58 @@ public class DaoUsersSQL {
             throw new RuntimeException(e);
         }
         return datosGestor;
+    }
+
+    public ArrayList<String> getDatosUsuarioInversor(String username) {
+        ArrayList<String> datosInversor = new ArrayList<>();
+        try {
+            dao.open();
+            String sql = "SELECT * FROM usuarios WHERE userName like ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                datosInversor.add(rs.getString("userName"));
+                datosInversor.add(rs.getString("nombre"));
+                datosInversor.add(rs.getString("email"));
+                datosInversor.add(rs.getString("saldo"));
+
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return datosInversor;
+    }
+    public String getSaldoInversor(String username) {
+        try {
+            dao.open();
+            String sql = "SELECT * FROM inversores WHERE userName like ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return (rs.getString("saldo"));
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return "0";
+    }
+    public boolean setSaldoInversor(String userName, double nuevoSaldo){
+        double saldoSumado;
+        try {
+            dao.open();
+            double saldoActual= Double.parseDouble(getSaldoInversor(userName));
+            saldoSumado = nuevoSaldo+saldoActual;
+            String sql = "UPDATE inversores SET saldo= ? WHERE userName=?";
+            PreparedStatement ps=dao.getConn().prepareStatement(sql);
+            ps.setDouble(1, saldoSumado);
+            ps.setString(2, userName);
+            return ps.executeUpdate()>0;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public ArrayList<Inversor> getAllUsersInversores() {
