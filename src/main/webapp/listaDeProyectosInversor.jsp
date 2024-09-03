@@ -52,7 +52,7 @@
       out.print("<td>" + proyecto.getCantidadFinanciada() + "</td>");
       out.print("<td>" + proyecto.getCantidadNecesaria() + "</td>");
 
-      out.print("<form action='InvertirEnProyectoServlet' method=\"post\">\n" +
+      out.print("<form action='invertir.jsp' method=\"post\">\n" +
               "<input type='hidden' name='codigo' value='"+proyecto.getCodigo()+"'>"+
               "<input type='hidden' name='userName' value='"+session.getAttribute("usuario")+"'>"+
 
