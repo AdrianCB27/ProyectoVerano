@@ -485,4 +485,52 @@ public class DaoUsersSQL {
         }
         return false;
     }
+    public boolean invertirProyecto(String userName, int codigo, double cantidadAInvertir){
+        double saldoInversor = 0, cantidadProyecto = 0;
+        try{
+            dao.open();
+            String consulta = "SELECT saldo FROM inversores WHERE userName = ?";
+            PreparedStatement ps = dao.getConn().prepareStatement(consulta);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) saldoInversor = rs.getDouble("saldo");
+            if(saldoInversor > cantidadAInvertir){
+                String getCantidadProyecto = "SELECT cantidadFinanciada FROM proyectos WHERE codigo = ?";
+                PreparedStatement ps2= dao.getConn().prepareStatement(getCantidadProyecto);
+                ps2.setInt(1,codigo);
+                ResultSet rs2= ps2.executeQuery();
+                if (rs2.next()) cantidadProyecto= rs2.getDouble("cantidadFinanciada");
+                String insertInversion= "INSERT INTO inversion (fechaInicio,ultimaActualizacion,cantidadParticipada,codigoProyecto,inversorUserName)" +
+                        "values (?,?,?,?,?)";
+                PreparedStatement ps3= dao.getConn().prepareStatement(insertInversion);
+                String fechaHoy= LocalDate.now().toString();
+                ps3.setString(1,fechaHoy);
+                ps3.setString(2,fechaHoy);
+                ps3.setDouble(3,cantidadAInvertir);
+                ps3.setInt(4,codigo);
+                ps3.setString(5,userName);
+                int filas = ps3.executeUpdate();
+
+                //________________________________
+                double nuevoSaldo = saldoInversor-cantidadAInvertir;
+                String updateSaldoInversor= "UPDATE inversores SET saldo=? WHERE userName = ?";
+                PreparedStatement ps4= dao.getConn().prepareStatement(updateSaldoInversor);
+                ps4.setDouble(1, nuevoSaldo);
+                ps4.setString(2, userName);
+                int filas2= ps4.executeUpdate();
+
+                //________________________________
+                double nuevaCantidadProyecto = cantidadProyecto + cantidadAInvertir;
+                String updateCantidadProyecto= "UPDATE proyectos SET cantidadFinanciada=? WHERE codigo = ?";
+                PreparedStatement ps5 = dao.getConn().prepareStatement(updateCantidadProyecto);
+                ps5.setDouble(1, nuevaCantidadProyecto);
+                ps5.setInt(2, codigo);
+                int filas3= ps5.executeUpdate();
+                return true;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
 }
