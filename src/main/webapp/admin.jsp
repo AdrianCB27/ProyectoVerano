@@ -96,8 +96,9 @@
 
     </table>
 </div>
-
+<form id="botonCerrarSesion" action="LogoutServlet" method="post">
+    <input type="submit" value="Cerrar sesión">
+</form>
 </body>
 </html>
-<!-- TODO hacer los proyectos, (CRUD)
 
