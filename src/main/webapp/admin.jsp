@@ -14,6 +14,30 @@
     <title>Administrador - Inicio</title>
     <link rel="icon" href="imagenes/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/admin.css">
+    <style>
+        #botonCerrarSesion {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            border: none;
+            padding: 0; 
+        }
+
+        #botonCerrarSesion input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #botonCerrarSesion input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
 </head>
 <body>
 <% if (session==null || session.getAttribute("usuario") == null){

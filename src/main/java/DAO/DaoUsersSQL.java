@@ -43,6 +43,7 @@ public class DaoUsersSQL {
     public ArrayList<Gestor> getAllUsersGestores() {
         ArrayList<Gestor> usersGestores = new ArrayList<>();
         try {
+
             dao.open();
             String sql = "SELECT * FROM gestores";
             PreparedStatement ps = dao.getConn().prepareStatement(sql);
