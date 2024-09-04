@@ -21,7 +21,7 @@
             right: 20px;
             background-color: black;
             border: none;
-            padding: 0; 
+            padding: 0;
         }
 
         #botonCerrarSesion input[type="submit"] {
