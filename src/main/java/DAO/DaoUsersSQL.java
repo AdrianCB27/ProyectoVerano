@@ -127,7 +127,6 @@ public class DaoUsersSQL {
                 datosInversor.add(rs.getString("userName"));
                 datosInversor.add(rs.getString("nombre"));
                 datosInversor.add(rs.getString("email"));
-                datosInversor.add(rs.getString("saldo"));
 
             }
         } catch (Exception e) {
